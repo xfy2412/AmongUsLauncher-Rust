@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { invoke } from '@tauri-apps/api/core';
 
 const showLoading = ref(true);
 
@@ -24,27 +25,46 @@ const newServer = ref({
 });
 
 async function fetchServers() {
-  const response = await fetch('http://localhost:8000/now_server');
-  const data = await response.json();
-  // 转换字段名从pingServer到ping_server以匹配后端API
-  servers.value = data.map(server => ({
-    ...server,
-    ping_server: server.pingServer || server.ping_server
-  }));
+  try {
+    const data = await invoke('get_now_server');
+    // 检查返回的数据是否是数组，如果不是则尝试从Regions字段获取
+    servers.value = Array.isArray(data) 
+      ? data.map(server => ({
+          ...server,
+          ping_server: server.pingServer || server.ping_server
+        }))
+      : (data?.Regions || []).map(server => ({
+          ...server,
+          ping_server: server.pingServer || server.ping_server
+        }));
+  } catch (error) {
+    console.error('获取服务器列表时出错:', error);
+  }
 }
 
 async function addServer() {
-  await fetch('http://localhost:8000/add_server', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+  try {
+    if (!newServer.value.name || !newServer.value.ping_server) {
+      throw new Error('服务器名称和地址不能为空');
+    }
+    await invoke('add_server', {
       name: newServer.value.name,
-      ping_server: newServer.value.ping_server,
+      pingServer: newServer.value.ping_server,
       port: newServer.value.port,
-      translate_name: newServer.value.translate_name
-    })
-  });
-  await fetchServers();
+      translateName: newServer.value.translate_name
+    });
+    await fetchServers();
+    // 清空表单
+    newServer.value = {
+      name: '',
+      ping_server: '',
+      port: 25565,
+      translate_name: 0
+    };
+  } catch (error) {
+    console.error('添加服务器时出错:', error);
+    alert(`添加服务器失败: ${error.message}`);
+  }
 }
 
 const showConfirmDialog = ref(false);
@@ -57,20 +77,19 @@ function confirmDelete(index) {
 
 async function removeServer(index) {
   try {
-    const response = await fetch('http://localhost:8000/remove_server', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ index: index })
+    const server = servers.value[index];
+    await invoke('remove_server_by_index', { 
+      regionIndex: index,
+      serverIndex: index
     });
-    
-    if (!response.ok) {
-      throw new Error('删除服务器失败');
-    }
-    
     await fetchServers();
   } catch (error) {
     console.error('删除服务器时出错:', error);
-    alert('删除服务器失败: ' + error.message);
+    if (error?.message?.includes('区域中没有Servers字段')) {
+      alert('删除服务器失败: 该区域没有可删除的服务器');
+    } else {
+      alert('删除服务器失败: ' + (error?.message || '未知错误'));
+    }
   } finally {
     showConfirmDialog.value = false;
   }
@@ -117,7 +136,7 @@ onMounted(fetchServers);
       <div v-for="(server, index) in servers" :key="index" class="server-item">
         <span>{{ server.name || server.Name || server.TranslateName}} - {{ server.ping_server || server.PingServer}}</span>
         <!-- 如果名字是North America-->
-        <template v-if="!(server.name === 'North America' || server.name === 'Asia' || server.name === 'Europe')">
+        <template v-if="!(server.Name === 'North America' || server.Name === 'Asia' || server.Name === 'Europe')">
           <button @click="confirmDelete(index)">删除</button>
         </template>
         <template v-else>
