@@ -1,0 +1,6 @@
+/.venv
+/out/
+/AUL-headend/dist/
+/AUL-headend/node_modules/
+/AUL-headend/src-tauri/target/
+/AUL-headend/src-tauri/gen/
