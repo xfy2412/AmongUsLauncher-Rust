@@ -1,61 +1,70 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import { invoke } from '@tauri-apps/api/core';
+import { getCurrentWindow } from '@tauri-apps/api/window';
 import './App-md3.css';
 
 const showLoading = ref(true);
 
+// 获取当前窗口实例
+const appWindow = getCurrentWindow();
+
+// 窗口控制函数
+async function minimizeWindow() {
+  await appWindow.minimize();
+}
+
+async function maximizeWindow() {
+  await appWindow.toggleMaximize();
+}
+
+async function closeWindow() {
+  await appWindow.close();
+}
+
+// 窗口状态
+const isMaximized = ref(false);
+
+// 监听窗口最大化状态
+onMounted(async () => {
+  isMaximized.value = await appWindow.isMaximized();
+  
+  // 监听窗口最大化状态变化
+  appWindow.listen('tauri://resize', async () => {
+    isMaximized.value = await appWindow.isMaximized();
+  });
+});
+
 // 主题管理
-const currentTheme = ref('auto'); // 'auto', 'light', 'dark'
+const currentTheme = ref('light'); // 'light', 'dark'
 
 // 初始化主题
 function initTheme() {
-  const savedTheme = localStorage.getItem('theme') || 'auto';
-  currentTheme.value = savedTheme;
-  applyTheme(savedTheme);
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  // 如果之前保存的是auto，则默认为light
+  currentTheme.value = savedTheme === 'auto' ? 'light' : savedTheme;
+  applyTheme(currentTheme.value);
 }
 
 // 应用主题
 function applyTheme(theme) {
   const htmlElement = document.documentElement;
-  
-  if (theme === 'auto') {
-    htmlElement.removeAttribute('data-theme');
-  } else {
-    htmlElement.setAttribute('data-theme', theme);
-  }
+  htmlElement.setAttribute('data-theme', theme);
 }
 
-// 切换主题
+// 切换主题 - 直接在light和dark之间切换
 function toggleTheme() {
-  const themes = ['auto', 'light', 'dark'];
-  const currentIndex = themes.indexOf(currentTheme.value);
-  const nextIndex = (currentIndex + 1) % themes.length;
-  currentTheme.value = themes[nextIndex];
+  currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light';
 }
 
 // 获取主题图标
 function getThemeIcon() {
-  switch (currentTheme.value) {
-    case 'light':
-      return 'light_mode';
-    case 'dark':
-      return 'dark_mode';
-    default:
-      return 'brightness_auto';
-  }
+  return currentTheme.value === 'light' ? 'dark_mode' : 'light_mode';
 }
 
 // 获取主题文本
 function getThemeText() {
-  switch (currentTheme.value) {
-    case 'light':
-      return '浅色模式';
-    case 'dark':
-      return '深色模式';
-    default:
-      return '跟随系统';
-  }
+  return currentTheme.value === 'light' ? '深色模式' : '浅色模式';
 }
 
 // 监听主题变化
@@ -64,8 +73,16 @@ watch(currentTheme, (newTheme) => {
   localStorage.setItem('theme', newTheme);
 });
 
-onMounted(() => {
+onMounted(async () => {
   initTheme();
+  
+  // 监听窗口最大化状态
+  isMaximized.value = await appWindow.isMaximized();
+  
+  // 监听窗口最大化状态变化
+  appWindow.listen('tauri://resize', async () => {
+    isMaximized.value = await appWindow.isMaximized();
+  });
   
   setTimeout(() => {
     showLoading.value = false;
@@ -159,6 +176,44 @@ onMounted(fetchServers);
 
 <template>
   <div class="app-container">
+    <!-- 自定义标题栏 - 始终显示 -->
+    <div class="custom-titlebar" data-tauri-drag-region>
+      <div class="titlebar-left">
+        <div class="app-icon">
+          <mdui-icon name="sports_esports"></mdui-icon>
+        </div>
+        <div class="app-title">Among Us Launcher</div>
+      </div>
+      
+      <div class="titlebar-right">
+        <div class="window-controls">
+          <button 
+            class="titlebar-button minimize-btn"
+            @click="minimizeWindow"
+            title="最小化"
+          >
+            <mdui-icon name="remove"></mdui-icon>
+          </button>
+          
+          <button 
+            class="titlebar-button maximize-btn"
+            @click="maximizeWindow"
+            :title="isMaximized ? '还原' : '最大化'"
+          >
+            <mdui-icon :name="isMaximized ? 'close_fullscreen' : 'open_in_full'"></mdui-icon>
+          </button>
+          
+          <button 
+            class="titlebar-button close-btn"
+            @click="closeWindow"
+            title="关闭"
+          >
+            <mdui-icon name="close"></mdui-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- 加载动画 -->
     <div v-if="showLoading" class="loading-overlay">
       <div class="loading-content">
@@ -171,7 +226,7 @@ onMounted(fetchServers);
     <div v-show="!showLoading">
       <!-- 顶部应用栏 -->
       <mdui-top-app-bar class="app-top-bar">
-        <mdui-top-app-bar-title>Among Us 服务器管理</mdui-top-app-bar-title>
+        <mdui-top-app-bar-title>服务器管理</mdui-top-app-bar-title>
         <div style="flex-grow: 1;"></div>
         
         <!-- 主题切换按钮 -->
@@ -180,7 +235,6 @@ onMounted(fetchServers);
             variant="outlined" 
             @click="toggleTheme"
             :icon="getThemeIcon()"
-            end-icon="expand_more"
           >
             {{ getThemeText() }}
           </mdui-button>
