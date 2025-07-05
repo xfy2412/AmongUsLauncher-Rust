@@ -1,11 +1,72 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { invoke } from '@tauri-apps/api/core';
 import './App-md3.css';
 
 const showLoading = ref(true);
 
+// 主题管理
+const currentTheme = ref('auto'); // 'auto', 'light', 'dark'
+
+// 初始化主题
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'auto';
+  currentTheme.value = savedTheme;
+  applyTheme(savedTheme);
+}
+
+// 应用主题
+function applyTheme(theme) {
+  const htmlElement = document.documentElement;
+  
+  if (theme === 'auto') {
+    htmlElement.removeAttribute('data-theme');
+  } else {
+    htmlElement.setAttribute('data-theme', theme);
+  }
+}
+
+// 切换主题
+function toggleTheme() {
+  const themes = ['auto', 'light', 'dark'];
+  const currentIndex = themes.indexOf(currentTheme.value);
+  const nextIndex = (currentIndex + 1) % themes.length;
+  currentTheme.value = themes[nextIndex];
+}
+
+// 获取主题图标
+function getThemeIcon() {
+  switch (currentTheme.value) {
+    case 'light':
+      return 'light_mode';
+    case 'dark':
+      return 'dark_mode';
+    default:
+      return 'brightness_auto';
+  }
+}
+
+// 获取主题文本
+function getThemeText() {
+  switch (currentTheme.value) {
+    case 'light':
+      return '浅色模式';
+    case 'dark':
+      return '深色模式';
+    default:
+      return '跟随系统';
+  }
+}
+
+// 监听主题变化
+watch(currentTheme, (newTheme) => {
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
 onMounted(() => {
+  initTheme();
+  
   setTimeout(() => {
     showLoading.value = false;
   }, 2000);
@@ -112,6 +173,20 @@ onMounted(fetchServers);
       <mdui-top-app-bar class="app-top-bar">
         <mdui-top-app-bar-title>Among Us 服务器管理</mdui-top-app-bar-title>
         <div style="flex-grow: 1;"></div>
+        
+        <!-- 主题切换按钮 -->
+        <div class="theme-toggle-button">
+          <mdui-button 
+            variant="outlined" 
+            @click="toggleTheme"
+            :icon="getThemeIcon()"
+            end-icon="expand_more"
+          >
+            {{ getThemeText() }}
+          </mdui-button>
+        </div>
+        
+        <!-- 启动游戏按钮 -->
         <mdui-button 
           variant="filled" 
           @click="startGame"

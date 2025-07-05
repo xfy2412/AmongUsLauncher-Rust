@@ -16,6 +16,18 @@
   --md-sys-color-background: #fef7ff;
   --md-sys-color-on-background: #1d1b20;
   
+  /* 次要色调 */
+  --md-sys-color-secondary: #625b71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #e8def8;
+  --md-sys-color-on-secondary-container: #1e192b;
+  
+  /* 第三色调 */
+  --md-sys-color-tertiary: #7d5260;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #ffd8e4;
+  --md-sys-color-on-tertiary-container: #31111d;
+  
   /* 错误色调 */
   --md-sys-color-error: #ba1a1a;
   --md-sys-color-on-error: #ffffff;
@@ -45,9 +57,9 @@
   --md-sys-shape-corner-extra-large: 24px;
 }
 
-/* 深色主题变量 */
+/* 深色主题变量 - 系统偏好 */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --md-sys-color-primary: #d0bcff;
     --md-sys-color-on-primary: #381e72;
     --md-sys-color-primary-container: #4f378b;
@@ -61,6 +73,16 @@
     --md-sys-color-background: #141218;
     --md-sys-color-on-background: #e6e0e9;
     
+    --md-sys-color-secondary: #cbc2db;
+    --md-sys-color-on-secondary: #332d41;
+    --md-sys-color-secondary-container: #4a4458;
+    --md-sys-color-on-secondary-container: #e8def8;
+    
+    --md-sys-color-tertiary: #efb8c8;
+    --md-sys-color-on-tertiary: #492532;
+    --md-sys-color-tertiary-container: #633b48;
+    --md-sys-color-on-tertiary-container: #ffd8e4;
+    
     --md-sys-color-error: #ffb4ab;
     --md-sys-color-on-error: #690005;
     --md-sys-color-error-container: #93000a;
@@ -69,6 +91,74 @@
     --md-sys-color-outline: #938f99;
     --md-sys-color-outline-variant: #49454f;
   }
+}
+
+/* 手动深色主题 */
+:root[data-theme="dark"] {
+  --md-sys-color-primary: #d0bcff;
+  --md-sys-color-on-primary: #381e72;
+  --md-sys-color-primary-container: #4f378b;
+  --md-sys-color-on-primary-container: #e9ddff;
+  
+  --md-sys-color-surface: #141218;
+  --md-sys-color-on-surface: #e6e0e9;
+  --md-sys-color-surface-variant: #49454f;
+  --md-sys-color-on-surface-variant: #cab6d6;
+  
+  --md-sys-color-background: #141218;
+  --md-sys-color-on-background: #e6e0e9;
+  
+  --md-sys-color-secondary: #cbc2db;
+  --md-sys-color-on-secondary: #332d41;
+  --md-sys-color-secondary-container: #4a4458;
+  --md-sys-color-on-secondary-container: #e8def8;
+  
+  --md-sys-color-tertiary: #efb8c8;
+  --md-sys-color-on-tertiary: #492532;
+  --md-sys-color-tertiary-container: #633b48;
+  --md-sys-color-on-tertiary-container: #ffd8e4;
+  
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
+  
+  --md-sys-color-outline: #938f99;
+  --md-sys-color-outline-variant: #49454f;
+}
+
+/* 手动浅色主题 */
+:root[data-theme="light"] {
+  --md-sys-color-primary: #6750a4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #e9ddff;
+  --md-sys-color-on-primary-container: #22005d;
+  
+  --md-sys-color-surface: #fef7ff;
+  --md-sys-color-on-surface: #1d1b20;
+  --md-sys-color-surface-variant: #e7e0ec;
+  --md-sys-color-on-surface-variant: #49454f;
+  
+  --md-sys-color-background: #fef7ff;
+  --md-sys-color-on-background: #1d1b20;
+  
+  --md-sys-color-secondary: #625b71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #e8def8;
+  --md-sys-color-on-secondary-container: #1e192b;
+  
+  --md-sys-color-tertiary: #7d5260;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #ffd8e4;
+  --md-sys-color-on-tertiary-container: #31111d;
+  
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  
+  --md-sys-color-outline: #79747e;
+  --md-sys-color-outline-variant: #cab6d6;
 }
 
 /* 全局样式 */
@@ -86,6 +176,7 @@ body {
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 应用容器 */
@@ -94,6 +185,7 @@ body {
   background-color: var(--md-sys-color-background);
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease;
 }
 
 /* 顶部应用栏 */
@@ -105,6 +197,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 主题切换按钮 */
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.theme-toggle-button mdui-button {
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-button mdui-button:hover {
+  transform: scale(1.05);
 }
 
 /* 主要内容区域 */
@@ -125,6 +234,7 @@ body {
   margin-bottom: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border: 1px solid var(--md-sys-color-outline-variant);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* 表单样式 */
@@ -134,6 +244,7 @@ body {
   padding: 24px;
   margin-bottom: 24px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-title {
@@ -141,6 +252,7 @@ body {
   font-weight: 500;
   color: var(--md-sys-color-on-surface);
   margin-bottom: 16px;
+  transition: color 0.3s ease;
 }
 
 .form-row {
@@ -161,6 +273,7 @@ body {
   border-radius: var(--md-sys-shape-corner-large);
   padding: 24px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .server-item {
@@ -171,7 +284,7 @@ body {
   margin-bottom: 8px;
   background-color: var(--md-sys-color-surface-variant);
   border-radius: var(--md-sys-shape-corner-small);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   border: 1px solid var(--md-sys-color-outline-variant);
 }
 
@@ -191,11 +304,13 @@ body {
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 4px;
+  transition: color 0.3s ease;
 }
 
 .server-address {
   font-size: 14px;
   color: var(--md-sys-color-on-surface-variant);
+  transition: color 0.3s ease;
 }
 
 /* 按钮样式调整 */
@@ -225,6 +340,7 @@ body {
   justify-content: center;
   z-index: 9999;
   backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
 }
 
 .loading-content {
@@ -233,6 +349,7 @@ body {
   padding: 48px;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .loading-title {
@@ -241,11 +358,52 @@ body {
   color: var(--md-sys-color-primary);
   margin-bottom: 16px;
   animation: pulse 2s ease-in-out infinite;
+  transition: color 0.3s ease;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
+}
+
+/* 深色模式特有的样式 */
+:root[data-theme="dark"] .loading-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .loading-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* 主题切换动画 */
+* {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-primary);
 }
 
 /* 响应式设计 */
@@ -267,5 +425,16 @@ body {
   .fab-container {
     bottom: 16px;
     right: 16px;
+  }
+  
+  .app-top-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .theme-toggle-button {
+    margin-left: 0;
+    justify-content: center;
   }
 } 
