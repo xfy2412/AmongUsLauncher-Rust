@@ -91,6 +91,7 @@
     --md-sys-color-outline: #938f99;
     --md-sys-color-outline-variant: #49454f;
   }
+
 }
 
 /* 手动深色主题 */
@@ -164,6 +165,13 @@
 /* 全局样式 */
 * {
   box-sizing: border-box;
+}
+
+slot {
+  color: var(--md-sys-color-on-surface);
+}
+p {
+  color: var(--md-sys-color-on-surface);
 }
 
 body {
