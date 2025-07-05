@@ -10,8 +10,11 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@mdui/icons": "^1.0.3",
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",
+    "material-icons": "^1.13.14",
+    "md-icons": "^1.0.0",
     "mdui": "^2.1.4",
     "mdui-vui": "^0.0.1-Alpha-5",
     "tauri": "^0.15.0",
