@@ -12,6 +12,8 @@
   "dependencies": {
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",
+    "mdui": "^2.1.4",
+    "mdui-vui": "^0.0.1-Alpha-5",
     "tauri": "^0.15.0",
     "vue": "^3.5.13"
   },
