@@ -28,4 +28,25 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+  
+  // 构建配置
+  build: {
+    // 确保资源文件被正确内联或复制
+    assetsInlineLimit: 4096,
+    // 优化构建
+    rollupOptions: {
+      output: {
+        // 确保字体文件被正确处理
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.woff2')) {
+            return 'fonts/[name][extname]';
+          }
+          if (assetInfo.name && assetInfo.name.endsWith('.woff')) {
+            return 'fonts/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    }
+  }
 }));
