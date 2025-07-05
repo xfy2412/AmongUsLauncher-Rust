@@ -1,4 +1,4 @@
-# AmongUsLauncher-Rust版本
-一个能快速管理AmongUs游戏版本、服务器和模组的软件  
+# Among Us Launcher
+Among Us 启动器，具有服务器管理功能  
 
-已使用 Rust 重构 焕发新生！
+基于 Rust 重构，现已焕发新生！

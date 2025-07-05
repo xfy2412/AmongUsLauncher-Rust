@@ -223,7 +223,13 @@ onMounted(fetchServers);
                 >
                   自定义服务器
                 </mdui-chip>
-                
+                <mdui-chip 
+                  v-if="server.PingServer === 'mxzc.cloud'"
+                  variant="assist"
+                  icon="verified"
+                >
+                  可信服务器
+                </mdui-chip>
                 <!-- 删除按钮 -->
                 <mdui-button 
                   v-if="!(server.Name === 'North America' || server.Name === 'Asia' || server.Name === 'Europe')"
