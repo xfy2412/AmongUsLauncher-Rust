@@ -1,3 +1,6 @@
+/* ==================== DEBUGGING STYLE ==================== */
+/* ========================================================= */
+
   /* Material Design 3 主题变量 */
 :root {
     /* 主色调 - 紫色 */
@@ -77,74 +80,116 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* 深色主题变量 - 系统偏好 */
+  /* 深色模式下的系统偏好设置 - 优化字体颜色表现 */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
       --md-sys-color-primary: #d0bcff;
       --md-sys-color-on-primary: #381e72;
-      --md-sys-color-primary-container: #4f378b;
+      --md-sys-color-primary-container: #3a2e57;
       --md-sys-color-on-primary-container: #e9ddff;
       
-      --md-sys-color-surface: #141218;
-      --md-sys-color-on-surface: #ffffff;
+      /* 优化表面颜色以提高对比度 */
+      --md-sys-color-surface: #1c1b1f;
+      --md-sys-color-on-surface: #e6e0e9;
       --md-sys-color-surface-variant: #49454f;
-      --md-sys-color-on-surface-variant: #ffffff;
+      --md-sys-color-on-surface-variant: #b8b1bb;
       
+      /* 优化背景颜色 */
       --md-sys-color-background: #141218;
-      --md-sys-color-on-background: #ffffff;
+      --md-sys-color-on-background: #e6e0e9;
       
+      /* 增加表面容器颜色层级 */
+      --md-sys-color-surface-container: #211f26;
+      --md-sys-color-surface-container-low: #1d1b20;
+      --md-sys-color-surface-container-high: #2b2930;
+      --md-sys-color-surface-container-highest: #36343b;
+      
+      /* 次要色调 */
       --md-sys-color-secondary: #cbc2db;
       --md-sys-color-on-secondary: #332d41;
-      --md-sys-color-secondary-container: #4a4458;
+      --md-sys-color-secondary-container: #433e50;
       --md-sys-color-on-secondary-container: #e8def8;
       
+      /* 第三色调 */
       --md-sys-color-tertiary: #efb8c8;
       --md-sys-color-on-tertiary: #492532;
       --md-sys-color-tertiary-container: #633b48;
       --md-sys-color-on-tertiary-container: #ffd8e4;
       
+      /* 错误色调 */
       --md-sys-color-error: #ffb4ab;
       --md-sys-color-on-error: #690005;
       --md-sys-color-error-container: #93000a;
       --md-sys-color-on-error-container: #ffdad6;
       
+      /* 优化轮廓颜色 */
       --md-sys-color-outline: #938f99;
       --md-sys-color-outline-variant: #49454f;
+      
+      /* 调整文字颜色 - 更柔和的配色 */
+      --md-sys-color-text-primary: #e6e0e9;
+      --md-sys-color-text-secondary: #b8b1bb;
+      --md-sys-color-text-tertiary: #938f99;
+      --md-sys-color-text-disabled: #5c5862;
+      --md-sys-color-text-success: #81c784;
+      --md-sys-color-text-warning: #ffb74d;
+      --md-sys-color-text-info: #64b5f6;
     }
   }
   
-  /* 手动深色主题 */
+  /* 手动深色主题 - 优化字体颜色表现 */
   :root[data-theme="dark"] {
     --md-sys-color-primary: #d0bcff;
     --md-sys-color-on-primary: #381e72;
-    --md-sys-color-primary-container: #4f378b;
+    --md-sys-color-primary-container: #3a2e57;
     --md-sys-color-on-primary-container: #e9ddff;
     
-    --md-sys-color-surface: #141218;
-    --md-sys-color-on-surface: #ffffff;
+    /* 优化表面颜色以提高对比度 */
+    --md-sys-color-surface: #1c1b1f;
+    --md-sys-color-on-surface: #e6e0e9;
     --md-sys-color-surface-variant: #49454f;
-    --md-sys-color-on-surface-variant: #ffffff;
+    --md-sys-color-on-surface-variant: #b8b1bb;
     
+    /* 优化背景颜色 */
     --md-sys-color-background: #141218;
-    --md-sys-color-on-background: #ffffff;
+    --md-sys-color-on-background: #e6e0e9;
     
+    /* 增加表面容器颜色层级 */
+    --md-sys-color-surface-container: #211f26;
+    --md-sys-color-surface-container-low: #1d1b20;
+    --md-sys-color-surface-container-high: #2b2930;
+    --md-sys-color-surface-container-highest: #36343b;
+    
+    /* 次要色调 */
     --md-sys-color-secondary: #cbc2db;
     --md-sys-color-on-secondary: #332d41;
-    --md-sys-color-secondary-container: #4a4458;
+    --md-sys-color-secondary-container: #433e50;
     --md-sys-color-on-secondary-container: #e8def8;
     
+    /* 第三色调 */
     --md-sys-color-tertiary: #efb8c8;
     --md-sys-color-on-tertiary: #492532;
     --md-sys-color-tertiary-container: #633b48;
     --md-sys-color-on-tertiary-container: #ffd8e4;
     
+    /* 错误色调 */
     --md-sys-color-error: #ffb4ab;
     --md-sys-color-on-error: #690005;
     --md-sys-color-error-container: #93000a;
     --md-sys-color-on-error-container: #ffdad6;
     
+    /* 优化轮廓颜色 */
     --md-sys-color-outline: #938f99;
     --md-sys-color-outline-variant: #49454f;
+    
+    /* 调整文字颜色 - 更柔和的配色 */
+    --md-sys-color-text-primary: #e6e0e9;
+    --md-sys-color-text-secondary: #b8b1bb;
+    --md-sys-color-text-tertiary: #938f99;
+    --md-sys-color-text-disabled: #5c5862;
+    --md-sys-color-text-success: #81c784;
+    --md-sys-color-text-warning: #ffb74d;
+    --md-sys-color-text-info: #64b5f6;
   }
   
   /* 手动浅色主题 */
@@ -345,11 +390,11 @@
   }
   
   :root[data-theme="dark"] .app-title {
-    color: #ffffff;
+    color: var(--md-sys-color-text-primary);
   }
   
   :root[data-theme="dark"] .titlebar-button {
-    color: #ffffff;
+    color: var(--md-sys-color-text-primary);
   }
   
   :root[data-theme="dark"] .titlebar-button:hover {
@@ -374,11 +419,11 @@
     }
   
     :root:not([data-theme]) .app-title {
-      color: #ffffff;
+      color: var(--md-sys-color-text-primary);
     }
   
     :root:not([data-theme]) .titlebar-button {
-      color: #ffffff;
+      color: var(--md-sys-color-text-primary);
     }
   
     :root:not([data-theme]) .titlebar-button:hover {
@@ -419,12 +464,12 @@
   
   /* 深色模式下的顶部应用栏标题 */
   :root[data-theme="dark"] .app-top-bar mdui-top-app-bar-title {
-    color: #ffffff !important;
+    color: var(--md-sys-color-text-primary) !important;
   }
   
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) .app-top-bar mdui-top-app-bar-title {
-      color: #ffffff !important;
+      color: var(--md-sys-color-text-primary) !important;
     }
   }
   
@@ -756,24 +801,24 @@
   :root[data-theme="dark"] .server-name,
   :root[data-theme="dark"] .form-title,
   :root[data-theme="dark"] .loading-title {
-    color: #ffffff;
+    color: var(--md-sys-color-text-primary);
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
   }
   
   :root[data-theme="dark"] .server-address {
-    color: #e0e0e0;
+    color: var(--md-sys-color-text-secondary);
   }
   
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) .server-name,
     :root:not([data-theme]) .form-title,
     :root:not([data-theme]) .loading-title {
-      color: #ffffff;
+      color: var(--md-sys-color-text-primary);
       text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
     }
     
     :root:not([data-theme]) .server-address {
-      color: #e0e0e0;
+      color: var(--md-sys-color-text-secondary);
     }
   }
   
@@ -781,14 +826,14 @@
   :root[data-theme="dark"] input,
   :root[data-theme="dark"] textarea,
   :root[data-theme="dark"] select {
-    background-color: var(--md-sys-color-surface-variant);
-    color: #ffffff;
-    border-color: var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-text-primary);
+    border: 1px solid var(--md-sys-color-outline);
   }
   
   :root[data-theme="dark"] input::placeholder,
   :root[data-theme="dark"] textarea::placeholder {
-    color: #b0b0b0;
+    color: var(--md-sys-color-text-tertiary);
   }
   
   @media (prefers-color-scheme: dark) {
@@ -796,12 +841,395 @@
     :root:not([data-theme]) textarea,
     :root:not([data-theme]) select {
       background-color: var(--md-sys-color-surface-variant);
-      color: #ffffff;
-      border-color: var(--md-sys-color-outline);
+      color: var(--md-sys-color-text-primary);
+      border: 1px solid var(--md-sys-color-outline);
     }
     
     :root:not([data-theme]) input::placeholder,
     :root:not([data-theme]) textarea::placeholder {
-      color: #b0b0b0;
+      color: var(--md-sys-color-text-tertiary);
     }
   }
+
+/* ========== 增强深色模式文字可读性样式 ========== */
+
+/* 深色模式标题和文本增强 */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6 {
+  color: var(--md-sys-color-text-primary);
+  font-weight: 500;
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] div {
+  color: var(--md-sys-color-on-surface);
+}
+
+/* 深色模式表单元素优化 */
+:root[data-theme="dark"] mdui-text-field {
+  --mdui-color-surface-variant: var(--md-sys-color-surface-container-high);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+}
+
+:root[data-theme="dark"] mdui-button {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+}
+
+/* 深色模式标签页文字优化 */
+:root[data-theme="dark"] .tab-navigation mdui-segmented-button {
+  color: var(--md-sys-color-text-secondary);
+}
+
+:root[data-theme="dark"] .tab-navigation mdui-segmented-button[selected] {
+  color: var(--md-sys-color-text-primary);
+}
+
+/* 深色模式模组管理文字优化 */
+:root[data-theme="dark"] .mod-name {
+  color: var(--md-sys-color-text-primary);
+  font-weight: 500;
+}
+
+:root[data-theme="dark"] .mod-description {
+  color: var(--md-sys-color-text-secondary);
+}
+
+:root[data-theme="dark"] .mod-version {
+  color: var(--md-sys-color-text-tertiary);
+}
+
+/* 深色模式芯片组件文字优化 */
+:root[data-theme="dark"] mdui-chip {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+}
+
+/* 深色模式对话框文字优化 */
+:root[data-theme="dark"] mdui-dialog {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+}
+
+/* 深色模式输入框文字对比度增强 */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-text-primary);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--md-sys-color-text-tertiary);
+}
+
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] textarea:focus,
+:root[data-theme="dark"] select:focus {
+  border-color: var(--md-sys-color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(208, 188, 255, 0.2);
+}
+
+/* 深色模式卡片和容器文字优化 */
+:root[data-theme="dark"] .form-container,
+:root[data-theme="dark"] .server-list,
+:root[data-theme="dark"] .mod-list {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+:root[data-theme="dark"] .form-title {
+  color: var(--md-sys-color-text-primary);
+}
+
+:root[data-theme="dark"] .server-item {
+  background-color: var(--md-sys-color-surface-container-high);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+:root[data-theme="dark"] .server-item:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+:root[data-theme="dark"] .mod-item {
+  background-color: var(--md-sys-color-surface-container-high);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+:root[data-theme="dark"] .mod-item:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* 深色模式图标颜色优化 */
+:root[data-theme="dark"] mdui-icon {
+  color: var(--md-sys-color-text-secondary);
+}
+
+:root[data-theme="dark"] .app-icon mdui-icon {
+  color: var(--md-sys-color-primary);
+}
+
+:root[data-theme="dark"] .mod-icon mdui-icon {
+  color: var(--md-sys-color-primary);
+}
+
+/* 深色模式空状态文字优化 */
+:root[data-theme="dark"] .empty-state {
+  color: var(--md-sys-color-text-tertiary);
+}
+
+/* 深色模式链接和强调文字 */
+:root[data-theme="dark"] a {
+  color: var(--md-sys-color-primary);
+}
+
+:root[data-theme="dark"] a:hover {
+  color: var(--md-sys-color-text-primary);
+}
+
+:root[data-theme="dark"] .text-emphasis {
+  color: var(--md-sys-color-text-primary);
+}
+
+:root[data-theme="dark"] .text-success {
+  color: var(--md-sys-color-text-success);
+}
+
+:root[data-theme="dark"] .text-warning {
+  color: var(--md-sys-color-text-warning);
+}
+
+:root[data-theme="dark"] .text-error {
+  color: var(--md-sys-color-error);
+}
+
+:root[data-theme="dark"] .text-info {
+  color: var(--md-sys-color-text-info);
+}
+
+/* 深色模式边框和分隔线优化 */
+:root[data-theme="dark"] hr {
+  border-color: var(--md-sys-color-outline-variant);
+}
+
+:root[data-theme="dark"] .divider {
+  background-color: var(--md-sys-color-outline-variant);
+}
+
+/* 深色模式阴影增强 */
+:root[data-theme="dark"] .form-container,
+:root[data-theme="dark"] .server-list,
+:root[data-theme="dark"] .mod-list {
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme="dark"] .server-item:hover,
+:root[data-theme="dark"] .mod-item:hover {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* 深色模式滚动条优化 */
+:root[data-theme="dark"] ::-webkit-scrollbar-track {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: var(--md-sys-color-outline);
+}
+
+:root[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-sys-color-text-tertiary);
+}
+
+/* ========== 系统偏好深色模式文字优化 ========== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) h1,
+  :root:not([data-theme]) h2,
+  :root:not([data-theme]) h3,
+  :root:not([data-theme]) h4,
+  :root:not([data-theme]) h5,
+  :root:not([data-theme]) h6 {
+    color: var(--md-sys-color-text-primary);
+    font-weight: 500;
+  }
+
+  :root:not([data-theme]) p,
+  :root:not([data-theme]) span,
+  :root:not([data-theme]) div {
+    color: var(--md-sys-color-on-surface);
+  }
+
+  :root:not([data-theme]) .mod-name {
+    color: var(--md-sys-color-text-primary);
+    font-weight: 500;
+  }
+
+  :root:not([data-theme]) .mod-description {
+    color: var(--md-sys-color-text-secondary);
+  }
+
+  :root:not([data-theme]) .mod-version {
+    color: var(--md-sys-color-text-tertiary);
+  }
+
+  :root:not([data-theme]) .form-title {
+    color: var(--md-sys-color-text-primary);
+  }
+}
+
+/* ========== MDUI组件深色模式配色优化 ========== */
+
+/* 深色模式下的MDUI按钮颜色优化 */
+:root[data-theme="dark"] mdui-button {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+  --mdui-color-outline: var(--md-sys-color-outline);
+  --mdui-color-surface: var(--md-sys-color-surface);
+  --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+}
+
+/* 深色模式下的MDUI标签页按钮优化 - 直接覆盖样式 */
+:root[data-theme="dark"] mdui-segmented-button-group {
+  --mdui-color-surface-container-highest: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 999px; /* 确保容器也是圆角的 */
+}
+
+:root[data-theme="dark"] mdui-segmented-button {
+  color: var(--md-sys-color-text-secondary) !important;
+}
+
+:root[data-theme="dark"] mdui-segmented-button[selected] {
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+
+/* 深色模式下的MDUI文本输入框优化 */
+:root[data-theme="dark"] mdui-text-field {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+  --mdui-color-outline: var(--md-sys-color-outline);
+  --mdui-color-surface-variant: var(--md-sys-color-surface-container-high);
+}
+
+/* 使用 ::part 伪元素精确定位并修复文本输入框标签的背景问题 */
+:root[data-theme="dark"] mdui-text-field::part(label) {
+  background-color: var(--md-sys-color-surface-container) !important;
+}
+
+/* 深色模式下的MDUI芯片组件优化 */
+:root[data-theme="dark"] mdui-chip {
+  background-color: var(--md-sys-color-secondary-container) !important;
+  color: var(--md-sys-color-on-secondary-container) !important;
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+  --mdui-color-outline: var(--md-sys-color-outline);
+  --mdui-color-surface: var(--md-sys-color-surface);
+  --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+}
+
+/* 深色模式下的MDUI对话框优化 */
+:root[data-theme="dark"] mdui-dialog {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+  --mdui-color-surface: var(--md-sys-color-surface);
+  --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+}
+
+/* 深色模式下的MDUI顶部应用栏优化 */
+:root[data-theme="dark"] mdui-top-app-bar {
+  --mdui-color-on-surface: var(--md-sys-color-text-primary);
+  --mdui-color-surface: var(--md-sys-color-surface);
+}
+
+/* 深色模式下的MDUI图标优化 */
+:root[data-theme="dark"] mdui-icon {
+  color: var(--md-sys-color-text-secondary);
+}
+
+:root[data-theme="dark"] .app-icon mdui-icon,
+:root[data-theme="dark"] .mod-icon mdui-icon {
+  color: var(--md-sys-color-primary);
+}
+
+/* 系统偏好深色模式的MDUI组件优化 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) mdui-button {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+    --mdui-color-outline: var(--md-sys-color-outline);
+    --mdui-color-surface: var(--md-sys-color-surface);
+    --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+  }
+
+  :root:not([data-theme]) mdui-segmented-button {
+    --mdui-color-on-surface: var(--md-sys-color-text-secondary);
+    --mdui-color-on-surface-variant: var(--md-sys-color-text-tertiary);
+    --mdui-color-outline: var(--md-sys-color-outline);
+    --mdui-color-surface: var(--md-sys-color-surface);
+    --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+  }
+
+  :root:not([data-theme]) mdui-segmented-button[selected] {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-on-primary-container: var(--md-sys-color-on-primary-container);
+    --mdui-color-primary-container: var(--md-sys-color-primary-container);
+  }
+
+  :root:not([data-theme]) mdui-text-field {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+    --mdui-color-outline: var(--md-sys-color-outline);
+    --mdui-color-surface-variant: var(--md-sys-color-surface-container-high);
+  }
+
+  /* 使用 ::part 伪元素精确定位并修复文本输入框标签的背景问题 */
+  :root:not([data-theme]) mdui-text-field::part(label) {
+    background-color: var(--md-sys-color-surface-container) !important;
+  }
+
+  :root:not([data-theme]) mdui-chip {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+    --mdui-color-outline: var(--md-sys-color-outline);
+    --mdui-color-surface: var(--md-sys-color-surface);
+    --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+  }
+
+  :root:not([data-theme]) mdui-dialog {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-on-surface-variant: var(--md-sys-color-text-secondary);
+    --mdui-color-surface: var(--md-sys-color-surface);
+    --mdui-color-surface-variant: var(--md-sys-color-surface-variant);
+  }
+
+  :root:not([data-theme]) mdui-top-app-bar {
+    --mdui-color-on-surface: var(--md-sys-color-text-primary);
+    --mdui-color-surface: var(--md-sys-color-surface);
+  }
+
+  :root:not([data-theme]) mdui-icon {
+    color: var(--md-sys-color-text-secondary);
+  }
+
+  :root:not([data-theme]) .app-icon mdui-icon,
+  :root:not([data-theme]) .mod-icon mdui-icon {
+    color: var(--md-sys-color-primary);
+  }
+}

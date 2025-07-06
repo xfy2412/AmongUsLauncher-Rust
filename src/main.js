@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import "./App-md3.css";
 import App from "./App.vue";
 
 // 导入本地Roboto字体
@@ -11,9 +12,8 @@ import '@fontsource/roboto/700.css';
 import '@material-design-icons/font/filled.css';
 import '@material-design-icons/font/outlined.css';
 
-// 导入MDUI样式
-import 'mdui/mdui.css';
-import 'mdui';
+// 由于MDUI是全局JS文件，我们需要在HTML中加载
+// MDUI将在index.html中加载
 
 // 导入mdui-vui插件
 import mduiVui from 'mdui-vui';

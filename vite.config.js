@@ -5,7 +5,16 @@ const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          // 将所有以 mdui- 开头的标签视为自定义元素
+          isCustomElement: (tag) => tag.startsWith('mdui-')
+        }
+      }
+    })
+  ],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

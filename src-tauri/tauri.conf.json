@@ -13,6 +13,7 @@
   "app": {
     "windows": [
       {
+        "label": "main",
         "title": "Among Us Launcher",
         "width": 1000,
         "height": 700,
@@ -28,7 +29,8 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self' http://localhost:8000;"
+      "csp": "default-src 'self' http://localhost:8000; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;",
+      "capabilities": ["default", "mod-manager"]
     }
   },
   "bundle": {
