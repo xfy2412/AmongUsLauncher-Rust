@@ -4,10 +4,9 @@
 ## 📸  应用UI
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="启动器模组管理界面.png">
-  <source media="(prefers-color-scheme: light)" srcset="启动器服务器管理界面.png">
-  <img alt="应用截图" src="启动器服务器管理界面.png">
-  <img alt="应用截图" src="启动器模组管理界面.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/xfy2412/AmongUsLauncher-Rust/blob/main/src/assets/%E5%90%AF%E5%8A%A8%E5%99%A8%E6%A8%A1%E7%BB%84%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png?raw=true">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/xfy2412/AmongUsLauncher-Rust/blob/main/src/assets/%E5%90%AF%E5%8A%A8%E5%99%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png?raw=true">
+  <img alt="应用截图" src="https://github.com/xfy2412/AmongUsLauncher-Rust/blob/main/src/assets/%E5%90%AF%E5%8A%A8%E5%99%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png?raw=true">
 </picture>
 
 ## ✨ 核心功能
