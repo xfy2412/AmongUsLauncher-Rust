@@ -1,0 +1,31 @@
+{
+  "name": "aul-headend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^5.2.6",
+    "@material-design-icons/font": "^0.14.15",
+    "@material-design-icons/svg": "^0.14.15",
+    "@mdui/icons": "^1.0.3",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "material-icons": "^1.13.14",
+    "md-icons": "^1.0.0",
+    "mdui": "^2.1.4",
+    "mdui-vui": "^0.0.1-Alpha-5",
+    "tauri": "^0.15.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.6.2",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.3"
+  }
+}

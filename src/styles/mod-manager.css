@@ -1,0 +1,169 @@
+/* =================== ModManager.vue 组件样式 =================== */
+
+.mod-manager {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-surface);
+}
+
+.custom-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  background-color: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding: 0 16px;
+  user-select: none;
+}
+
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-icon {
+  font-size: 16px;
+  color: var(--md-sys-color-primary);
+}
+
+.app-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.titlebar-right {
+  display: flex;
+  align-items: center;
+}
+
+.window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.titlebar-button {
+  width: 32px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface);
+  transition: background-color 0.2s;
+}
+
+.titlebar-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.close-btn:hover {
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+}
+
+.main-content {
+  flex: 1;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.mod-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mod-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mod-header h2 {
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.mod-header .mod-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mod-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mod-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: 12px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.mod-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.mod-icon {
+  font-size: 32px;
+  color: var(--md-sys-color-primary);
+}
+
+.mod-details {
+  flex: 1;
+}
+
+.mod-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 4px;
+}
+
+.mod-description {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 4px;
+}
+
+.mod-version {
+  font-size: 12px;
+  color: var(--md-sys-color-outline);
+}
+
+.mod-item .mod-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mod-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.mod-stats {
+  display: flex;
+  gap: 8px;
+} 

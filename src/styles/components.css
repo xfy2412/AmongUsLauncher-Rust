@@ -1,0 +1,102 @@
+/* =================== App.vue 组件样式 =================== */
+
+/* 标签页导航样式 */
+.tab-navigation {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--md-sys-color-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 模组列表样式 */
+.mod-list {
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 16px;
+}
+
+.mod-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.mod-item:hover {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.mod-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.mod-icon {
+  font-size: 32px;
+  color: var(--md-sys-color-primary);
+}
+
+.mod-details {
+  flex: 1;
+}
+
+.mod-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 4px;
+}
+
+.mod-description {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 4px;
+}
+
+.mod-version {
+  font-size: 12px;
+  color: var(--md-sys-color-outline);
+}
+
+.mod-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mod-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.mod-stats {
+  display: flex;
+  gap: 8px;
+} 
